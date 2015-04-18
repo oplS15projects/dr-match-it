@@ -8,5 +8,11 @@
 ; Will integrate game, sound, GUI components and handle game initialization
 ;******************************************************************************
 
-(include "cardgame.rkt")
-(include "sound.rkt")
+#lang racket
+(require "boarddata.rkt")
+(require "matching.rkt")
+(require games/cards)
+(require racket/gui)
+
+(send board show #t)
+(send board set-single-click-action m)
