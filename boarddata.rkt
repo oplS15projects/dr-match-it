@@ -1,4 +1,17 @@
+;******************************************************************************
+; Dr. Match-It -- OPL Final Project Spring 2015
+; Team: Pebble BoyZ
+; File: cardgame.rkt
+;
+; Implementation of cardgame rules & functionality
+; See "main.rkt" for initialization
+; For testing, make another file with (include "cardgame.rkt")
+; in the working directory and call into this one
+;******************************************************************************
+
 #lang racket
+
+(provide (all-defined-out))
 (require games/cards)
 (require racket/gui)
 ;;#Rows and Columns
@@ -6,7 +19,6 @@
 (define HEIGHT 4)
 ;;Creating Board with # of rows and Columns in mind
 (define board (make-table "Dr.Match It" (+ 2 WIDTH) (+ 1 HEIGHT)))
-(send board show #t)
 (send board set-double-click-action #f)
 ;;Geting true board width and height
 (define w (send board table-width))
@@ -38,6 +50,7 @@
 
 (define match-x (- w cw dx))
 (define match-y dy)
+
 ;;Restrict user from moving cards, only letting them flip
 (for-each (lambda (card)
             (send card user-can-move #f)
@@ -53,21 +66,3 @@
                 [j (quotient pos WIDTH)])
             (values (+ dx (* i (+ cw dx)))
                     (+ dy (* j (+ ch dy)))))))
-;;Matching Procedure
-(define c1 #f)
-(define (m c)
-  (cond ((not c1)
-         ;;This is the first card flipped
-         (begin(set! c1 c)
-               (send board flip-card c)))
-        (c1
-         ;;This is when the second card is flipped
-         (send board flip-card c)
-         (if (and (equal? (send c1 get-suit) (send c get-suit))
-                  (equal? (send c1 get-value) (send c get-value)))
-             (send board remove-cards (list c1 c))
-             (begin (send board flip-cards (list c1 c))
-                    (set! c1 #f))))
-        (else (displayln "Error"))))
-
-(send board set-single-click-action m)
