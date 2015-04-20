@@ -13,7 +13,7 @@
 
 (define scount 0)
 (define (shuffle-counter)
-    (cond((equal? scount 5)
+    (cond((equal? scount SHUFFLE-COUNT)
          (begin (pretty-shuffle deck) (set! scount (- scount scount))))
          (else (set! scount (+ scount 1)))))
          
@@ -54,9 +54,8 @@
   (send board cards-face-down deck) ;; flip cards that are face up
   (displayln "Moving cards back home!")
   (map move-home (cdr deck)) ;; move all cards to home
-  (shuffle-list deck 10) ;; actually shuffle
   (shuffle-animation deck) ;; make it look like it's shuffling
   (displayln "Setting up cards again!")
-  (send board move-cards deck 0 0 offset)) ;; fix cards, now shuffles.
+  (send board move-cards (shuffle-list deck 10) 0 0 offset)) ;; Place shuffled deck
 
 ;; Done with shuffle
