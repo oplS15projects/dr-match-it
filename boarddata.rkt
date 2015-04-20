@@ -15,6 +15,7 @@
 (require games/cards)
 (require racket/gui)
 ;;#Rows and Columns
+(define SHUFFLE-COUNT 5)
 (define WIDTH 4)
 (define HEIGHT 4)
 ;;Creating Board with # of rows and Columns in mind
