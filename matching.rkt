@@ -2,6 +2,7 @@
 
 (require "boarddata.rkt")
 (require "shuffle.rkt")
+(require "sound.rkt")
 (provide (all-defined-out))
 
 ;;Matching Procedure
@@ -10,7 +11,8 @@
   (cond ((not c1)
          ;;This is the first card flipped
          (begin(set! c1 c)
-               (send board flip-card c)))
+               (send board flip-card c)
+               (play-flip-sound c)))
         (c1
          ;;This is when the second card is flipped
          (send board flip-card c)
