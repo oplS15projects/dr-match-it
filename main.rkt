@@ -8,7 +8,8 @@
 ; Will integrate game, sound, GUI components and handle game initialization
 ;******************************************************************************
 
-(require "boarddata.rkt")
+;; temporarily moved boarddata defs in with matching
+;(require "boarddata.rkt")
 (require "matching.rkt")
 
 (require games/cards)

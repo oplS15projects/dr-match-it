@@ -20,8 +20,8 @@
 (define 60th 735)
 
 ;----GENERATORS----------------------------------------------------------------
-; a simple falling tone - falls one octave
-; to be chained together later to make a "you lose" sort of sound?
+;; a simple falling tone - falls one octave
+;; to be chained together later to make a "you lose" sort of sound?
 (define (make-drop-tone pitch frames volume)
   (build-sound frames (lambda (f)
                         (* volume
@@ -59,7 +59,7 @@
                                         (silence 1323)
                                         (make-pluck 987.77 60th 7350 0.05))))
 
-;----INTEGRATION PLAYERS-------------------------------------------------------
+;----INTEGRATION-PLAYERS-------------------------------------------------------
 
 (define (play-flip-sound card)
   (play flip-tritone))
