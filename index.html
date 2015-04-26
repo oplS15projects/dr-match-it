@@ -65,7 +65,7 @@
 
 <ul>
 <li>
-<strong>Manipulation of Lists</strong> is used extensively in this project as the deck really just a list.</li>
+<strong>Manipulation of Lists</strong> is used extensively in this project as the deck is ultimately just a list.</li>
 <li>The sound engine makes extensive use of <strong>memoized</strong> procedures to minimize compute times during waveform generation.</li>
 </ul>
 
@@ -93,11 +93,11 @@ Remember code looks something like this:</p>
    two things we just recently where introduced to.</p>
 
 <div class="highlight highlight-scheme"><pre>
-              (define scount 0)
-                  (define (shuffle-counter)
-                      (cond((equal? scount SHUFFLE-COUNT)
-                          (begin (pretty-shuffle deck) (set! scount (- scount scount))))
-                          (else (set! scount (+ scount 1)))))
+      (define scount 0)
+      (define (shuffle-counter)
+          (cond((equal? scount SHUFFLE-COUNT)
+              (begin (pretty-shuffle deck) (set! scount (- scount scount))))
+              (else (set! scount (+ scount 1)))))
          </pre></div>
 
 <h4>Peter</h4>
