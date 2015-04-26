@@ -11,6 +11,7 @@
 ;; temporarily moved boarddata defs in with matching
 ;(require "boarddata.rkt")
 (require "matching.rkt")
+(require "boarddata.rkt")
 
 (require games/cards)
 (require racket/gui)
