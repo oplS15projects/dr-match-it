@@ -28,7 +28,8 @@
                   (equal? (send c1 get-value) (send c get-value)))
              ;;This is when theres a match
              (begin (play-flip-sound c)
-                    (send board pause .5) 
+                    (send board pause .5)
+                    (play-event-sound 'match)
                     (send board remove-cards (list c1 c))
                     (set! MAX (- MAX 1))
                     (set! c1 #f)
@@ -37,7 +38,10 @@
                         (update-score (* 10 Multiplier)))
                     (set! Multiplier (+ Multiplier .5)))
              ;;This is when there is an incorrect flip
-             (begin (send board pause .5) (send board flip-cards (list c1 c))
+             (begin (play-flip-sound c)
+                    (send board pause .5)
+                    (play-event-sound 'wrong)
+                    (send board flip-cards (list c1 c))
                     (set! c1 #f)
                     (set! Multiplier 1)
                     (shuffle-counter))))
@@ -71,7 +75,8 @@
   (send board remove-region score-area)
   (set! score-area (make-final-area (+ score current-score)))
   (send board add-region score-area)
-  (send board end-card-sequence))
+  (send board end-card-sequence)
+  (play-event-sound 'win))
 ;;Update Score Procedure
 (define (update-score score)
   (set! current-score (+ current-score score))
