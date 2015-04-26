@@ -100,8 +100,10 @@ Remember code looks something like this:</p>
   matches)</pre></div>
 
 <h4>Peter</h4>
-<p> </p>
-<div class="highlight highlight-scheme"><pre>(map (lambda (x) (foldr compose functions)) data)</pre></div>
+<p>This expression uses duty cycle modulation in pulse waves to
+   emulate a string-plucking effect from two appended pulse waves.</p>
+<div class="highlight highlight-scheme"><pre>(rs-append (make-pulse pitch attack volume 0.5)
+             (make-pulse pitch sustain (/ volume 2) 0.25))</pre></div>
 
 <h1>
 <a id="how-to-download-and-run" class="anchor" href="#how-to-download-and-run" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to Download and Run</h1>
