@@ -123,8 +123,8 @@
                                                                           (rs-scale 0.33
                                                                                     (synth-note "vgame" 49 71 44100))))))))
 
-(define shuff-sound (rs-append* (list (lowpass 0.6 (make-noise 2000 (/ MASTER-VOL 2)))
-                                      (make-tone (midi-note-num->pitch 92) MASTER-VOL 2800))))
+(define shuff-sound (rs-append* (list (lowpass 0.7 (make-noise 2000 MASTER-VOL))
+                                      (silence 2250))))
 
 (define wrong-match (make-mod-sweep 110 55 11025 MASTER-VOL (/ 44100 50))) 
 
@@ -192,4 +192,3 @@
         ((eq? 'match event) (begin (play correct-match) (sleep 0.2)))
         ((eq? 'win event) (begin (play you-win) (sleep 0.2)))
         (else (error "play-event-sound: invalid event"))))
-
