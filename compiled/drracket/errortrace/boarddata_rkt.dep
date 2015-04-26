@@ -1,1 +1,0 @@
-("6.1.1" ("bfc47b349b077e27c41ef397822948c5858fe037" . "a0dc1e4c0b40e98534a18c006269d973ad92b66e") (collects #"racket" #"runtime-config.rkt") (collects #"games" #"cards.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"gui.rkt") (collects #"errortrace" #"errortrace-key.rkt"))
