@@ -65,9 +65,7 @@
 
 <ul>
 <li>
-<strong>Data abstraction</strong> is used to provide access to the elements of the RSS feed.</li>
-<li>The objects in the OpenGL world are represented with <strong>recursive data structures.</strong>
-</li>
+<strong>Manipulation of Lists</strong> is used extensively in this project as the deck is ultimately just a list.</li>
 <li>The sound engine makes extensive use of <strong>memoized</strong> procedures to minimize compute times during waveform generation.</li>
 </ul>
 
@@ -77,9 +75,13 @@
 <ul>
   <li><a href="http://docs.racket-lang.org/cards/index.html?q=">Cards Library</a></li>
   <li><a href="http://pkg-build.racket-lang.org/doc/rsound/index.html">rsound Library</a></li>
+  <li><a href="http://docs.racket-lang.org/gui/">GUI Library</a></li>
 </ul>
 
 <h2><a id="favorite-lines-of-code" class="anchor" href="#favorite-lines-of-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Favorite Lines of Code</h2>
+
+
+<h4></a>Alex Li</h4>
 
 <p>This is the match checking procedure called to verify whether two cards are the same. I am particularly proud of this code as it pieces together alot of the code the group has created such as playing sounds, scrambling the cards, and the score system. The procedure makes extensive use of card library calls, as well as begin and set! to handle all matching cases.  </p>
 
@@ -108,18 +110,21 @@
                     (set! Multiplier 1))))
         (else (displayln "Error"))))</pre></div>
 
-<h4>Pat</h4>
+<h4>Patrick Quaratiello</h4>
 
-<p>This expression reads in a regular expression and elegantly matches it against a pre-existing hashmap....</p>
+<p>These 5 lines of code are where the scramble function happens based on the number of failed matches. It is my favorite
+   mostly because it is where everything else in the file is really used, but also because I was able to use begin and set!,
+   two things we just recently were introduced to.</p>
 
-<div class="highlight highlight-scheme"><pre>(let* ((expr (convert-to-regexp (read-line my-in-port)))
-             (matches (flatten
-                       (hash-map *words*
-                                 (lambda (key value)
-                                   (if (regexp-match expr key) key '()))))))
-  matches)</pre></div>
+<div class="highlight highlight-scheme"><pre>
+      (define scount 0)
+      (define (shuffle-counter)
+          (cond((equal? scount SHUFFLE-COUNT)
+              (begin (pretty-shuffle deck) (set! scount (- scount scount))))
+              (else (set! scount (+ scount 1)))))
+         </pre></div>
 
-<h4>Peter</h4>
+<h4>Peter Welby</h4>
 <p>This expression uses duty cycle modulation in pulse waves to
    emulate a string-plucking effect from two appended pulse waves.</p>
 <div class="highlight highlight-scheme"><pre>(rs-append (make-pulse pitch attack volume 0.5)
