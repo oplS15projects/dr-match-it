@@ -192,3 +192,5 @@
         ((eq? 'match event) (begin (play correct-match) (sleep 0.2)))
         ((eq? 'win event) (begin (play you-win) (sleep 0.2)))
         (else (error "play-event-sound: invalid event"))))
+
+(define bookend #f)
