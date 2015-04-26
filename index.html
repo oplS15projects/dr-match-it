@@ -93,11 +93,11 @@ Remember code looks something like this:</p>
    two things we just recently where introduced to.</p>
 
 <div class="highlight highlight-scheme"><pre>(let* ((expr (convert-to-regexp (read-line my-in-port)))
-  (define scount 0)
-      (define (shuffle-counter)
-          (cond((equal? scount SHUFFLE-COUNT)
-              (begin (pretty-shuffle deck) (set! scount (- scount scount))))
-              (else (set! scount (+ scount 1)))))
+              (define scount 0)
+                  (define (shuffle-counter)
+                      (cond((equal? scount SHUFFLE-COUNT)
+                          (begin (pretty-shuffle deck) (set! scount (- scount scount))))
+                          (else (set! scount (+ scount 1)))))
          </pre></div>
 
 <h4>Peter</h4>
