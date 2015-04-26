@@ -17,7 +17,7 @@
 ;;#Rows and Columns
 (define SHUFFLE-COUNT 5)
 (define WIDTH 4)
-(define HEIGHT 4)
+(define HEIGHT 3)
 ;;Creating Board with # of rows and Columns in mind
 (define board (make-table "Dr.Match It" (+ 2 WIDTH) (+ 1 HEIGHT)))
 (send board set-double-click-action #f)
