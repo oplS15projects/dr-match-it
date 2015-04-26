@@ -92,7 +92,7 @@ Remember code looks something like this:</p>
    mostly because it is where everything else in the file is really used, but also because I was able to use begin and set!,
    two things we just recently where introduced to.</p>
 
-<div class="highlight highlight-scheme"><pre>(let* ((expr (convert-to-regexp (read-line my-in-port)))
+<div class="highlight highlight-scheme"><pre>
               (define scount 0)
                   (define (shuffle-counter)
                       (cond((equal? scount SHUFFLE-COUNT)
