@@ -38,8 +38,8 @@
  
 (define (shuff deck) 
   (set! count1 (+ count1 1)) ;; inc how many times we "shuffle"
-  (send board move-card (caddr deck) 72 24) ;; move over
-  (send board move-card (caddr deck) 12 24) ;; put back
+  (send board move-card (cadr (send board all-cards))  72 24) ;; move over
+  (send board move-card (cadr (send board all-cards)) 12 24) ;; put back
   (check)) ;; check if we did this 5 times
 
 (define (check)
