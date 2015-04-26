@@ -143,6 +143,11 @@
                                 (make-mod-sweep 330 660 5525 MASTER-VOL (/ 44100 75)))))
 ;----INTEGRATION-PLAYERS-------------------------------------------------------
 
-;(define (play-flip-sound card)
-;  )
+(define (play-flip-sound card)
+  (cond ((equal? (send card get-value) 1) (play flip1))
+        ((equal? (send card get-value) 2) (play flip2))
+        ((equal? (send card get-value) 3) (play flip3))
+        ((equal? (send card get-value) 4) (play flip4))
+        ((equal? (send card get-value) 5) (play flip5))
+        ((equal? (send card get-value) 6) (play flip6))))
 
