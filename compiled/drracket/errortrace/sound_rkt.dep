@@ -1,1 +1,0 @@
-("6.1.1" ("46e1dc6a0c488c13a171330793c441feaabd9232" . "75e3c263dd1b3501ba6d43534d62226ddf8859bc") (collects #"racket" #"runtime-config.rkt") (collects #"rsound" #"main.rkt") (collects #"racket" #"main.rkt") (collects #"syntax" #"parse" #"private" #"parse-aux.rkt") (collects #"syntax" #"parse" #"private" #"runtime-report.rkt"))
