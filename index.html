@@ -81,10 +81,32 @@
 
 <h4></a>Alex</h4>
 
-<p>Each team member should identify a favorite line of code, expression, or procedure written by them, and explain what it does. Why is it your favorite? What OPL philosophy does it embody?
-Remember code looks something like this:</p>
+<p>This is the match checking procedure called to verify whether two cards are the same. I am particularly proud of this code as it pieces together alot of the code the group has created such as playing sounds, scrambling the cards, and the score system. The procedure makes extensive use of card library calls, as well as begin and set! to handle all matching cases.  </p>
 
-<div class="highlight highlight-scheme"><pre>(map (lambda (x) (foldr compose functions)) data)</pre></div>
+<div class="highlight highlight-scheme"><pre>(define (m c)
+  (cond ((not c1)
+         (begin(set! c1 c)
+               (send board flip-card c)
+               (play-flip-sound c)))
+        ((not (send c face-down?))
+         (set! c1 c))
+        (c1
+         (send board flip-card c)
+         (if (and (equal? (send c1 get-suit) (send c get-suit))
+                  (equal? (send c1 get-value) (send c get-value)))
+             (begin (play-flip-sound c)
+                    (send board pause .5) 
+                    (send board remove-cards (list c1 c))
+                    (set! MAX (- MAX 1))
+                    (set! c1 #f)
+                    (if (= MAX 0)
+                        (update-final-score (* 10 Multiplier))
+                        (update-score (* 10 Multiplier)))
+                    (set! Multiplier (+ Multiplier .5)))
+             (begin (send board pause .5) (send board flip-cards (list c1 c))
+                    (set! c1 #f)
+                    (set! Multiplier 1))))
+        (else (displayln "Error"))))</pre></div>
 
 <h4>Patrick Quaratiello</h4>
 
