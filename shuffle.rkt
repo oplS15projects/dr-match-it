@@ -19,8 +19,8 @@
 (define scount 0)
 (define (shuffle-counter)
     (cond((equal? scount SHUFFLE-COUNT)
-         (begin (pretty-shuffle deck) (set! scount (- scount scount)) (displayln "reset scount")))
-         (else (begin (set! scount (+ scount 1)) (displayln "add 1 to scount")))))
+         (begin (pretty-shuffle deck) (set! scount (- scount scount))))
+         (else (begin (set! scount (+ scount 1))))))
          
 
 ;; Below is the whole shuffle routine with it's sub functions
@@ -57,7 +57,7 @@
 
 (define (pretty-shuffle vars)
   (send board cards-face-down deck) ;; flip cards that are face up
-  (map move-home (cdr deck)) ;; move all cards to home
+  (map move-home (send board all-cards)) ;; move all cards to home
   (shuffle-animation deck) ;; make it look like it's shuffling
   (send board move-cards (shuffle-list deck 10) 12 24 offset)) ;; Place shuffled deck
 
