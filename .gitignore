@@ -219,3 +219,8 @@ pip-log.txt
 ## Photoshop
 #############
 *.psd
+
+#############
+## Dr. Racket
+#############
+compiled/

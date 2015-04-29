@@ -1,1 +1,0 @@
-("6.1.1" ("b9642438a087a2cbd9baf4ec1be913a7b09c385b" . "7b6c40849fe7ad7f078397dc00c40331846a4f2a") (collects #"racket" #"main.rkt") (collects #"games" #"cards.rkt") #"C:\\Users\\Patrick\\Desktop\\dr matchit\\boarddata.rkt" (collects #"racket" #"gui.rkt") (collects #"racket" #"runtime-config.rkt"))

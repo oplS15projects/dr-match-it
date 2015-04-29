@@ -3,6 +3,7 @@
 (require games/cards)
 (require racket/gui)
 (require "boarddata.rkt")
+(require "sound.rkt")
 (provide (all-defined-out))
 
 ;;Utility functions
@@ -38,6 +39,7 @@
  
 (define (shuff deck) 
   (set! count1 (+ count1 1)) ;; inc how many times we "shuffle"
+  (play-event-sound 'shuffle)
   (send board move-card (cadr (send board all-cards))  72 24) ;; move over
   (send board move-card (cadr (send board all-cards)) 12 24) ;; put back
   (check)) ;; check if we did this 5 times
