@@ -34,7 +34,9 @@
                     (set! MAX (- MAX 1))
                     (set! c1 #f)
                     (if (= MAX 0)
-                        (update-final-score (* 10 Multiplier))
+                        (begin
+                          (update-final-score (* 10 Multiplier))
+                          (send board add-region reset-button))
                         (update-score (* 10 Multiplier)))
                     (set! Multiplier (+ Multiplier .5)))
              ;;This is when there is an incorrect flip
@@ -86,3 +88,18 @@
   (send board add-region score-area)
   (send board end-card-sequence))
 (send board add-region score-area)
+(define (reset-2)
+  (begin 
+    (set! Multiplier 1)
+    (set! MAX (/ (* WIDTH HEIGHT) 2))
+    (set! current-score 0)
+    (send board remove-region score-area)
+    (set! score-area (make-score-area 0))
+    (update-score 0)))
+  (define (reset)
+    (begin
+      (send board remove-region reset-button)
+      (reset-3)
+      (reset-2)
+      (reset-1)))
+(define reset-button (make-button-region 210 200 80 20 "REPLAY" reset))

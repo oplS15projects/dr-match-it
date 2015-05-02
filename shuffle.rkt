@@ -62,3 +62,5 @@
   (send board move-cards (shuffle-list deck 10) 12 24 offset)) ;; Place shuffled deck
 
 ;; Done with shuffle
+(define (reset-3)
+  (set! scount 0))
