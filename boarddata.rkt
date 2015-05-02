@@ -67,7 +67,7 @@
             (send card user-can-flip #t))
           deck)
 ;;Adding Deck to board
-(send board add-cards deck match-x match-y)
+    (send board add-cards deck match-x match-y)
 (set! deck (shuffle-list deck 7))
   (send board stack-cards deck)
   (send board move-cards deck 0 0
@@ -76,3 +76,16 @@
                 [j (quotient pos WIDTH)])
             (values (+ dx (* i (+ cw dx)))
                     (+ dy (* j (+ ch dy)))))))
+(define (reset-1)
+  (begin
+    (send board add-cards deck match-x match-y)
+    (send board cards-face-down deck)
+    (set! deck (shuffle-list deck 7))
+  (send board stack-cards deck)
+  (send board move-cards deck 0 0
+        (lambda (pos)
+          (let ([i (modulo pos WIDTH)]
+                [j (quotient pos WIDTH)])
+            (values (+ dx (* i (+ cw dx)))
+                    (+ dy (* j (+ ch dy)))))))))
+  
